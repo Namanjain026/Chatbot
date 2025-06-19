@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gemini Clone</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
@@ -23,29 +20,20 @@
           <span class="material-symbols-rounded">draw</span>
         </li>
         <li class="suggestions-item">
-          <p class="text">Design a home setup for remote work under $500.</p>
+          <p class="text">Improve your study routine with focus tools.</p>
           <span class="material-symbols-rounded">lightbulb</span>
         </li>
         <li class="suggestions-item">
-          <p class="text">Design a home setup for remote work under $500.</p>
+          <p class="text">Plan a solo trip through Northeast India.</p>
           <span class="material-symbols-rounded">explore</span>
         </li>
         <li class="suggestions-item">
-          <p class="text">Design a home setup for remote work under $500.</p>
+          <p class="text">Explain JavaScript closures with examples.</p>
           <span class="material-symbols-rounded">code_blocks</span>
         </li>
       </ul>
 
-      <div class="chats-container">
-        <div class="message user-message">
-          <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Voluptatibus quod excepturi accusantium corrupti, dignissimos voluptatum modi nostrum quis</p>
-        </div>
-        <div class="message bot-message">
-          <img src = "gemini-logo.svg" class = "avatar">
-          <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-      </div>
+      <div class="chats-container"></div>
 
       <div class="prompt-container">
         <div class="prompt-wrapper">
@@ -56,6 +44,7 @@
               class="prompt-input"
               required
             />
+            <input type="file" id="file-input" hidden />
             <div class="prompt-actions">
               <button
                 id="add-file-btn"
@@ -73,6 +62,7 @@
               </button>
             </div>
           </form>
+          <span id="selected-file-name"></span>
           <button id="theme-toggle-btn" class="material-symbols-rounded">
             light_mode
           </button>
@@ -81,22 +71,11 @@
           </button>
         </div>
         <p class="disclaimer-text">
-          Gemini can make mistakes, please double-check it for your own
-          satisfaction.
+          Gemini can make mistakes, please double-check it for your own satisfaction.
         </p>
       </div>
     </div>
 
-    <script src = "index.js">
-      const input = document.querySelector(".prompt-input");
-      const sendBtn = document.getElementById("send-prompt-btn");
-
-      input.addEventListener("input", () => {
-        sendBtn.style.display = input.value.trim() ? "inline-flex" : "none";
-      });
-
-      // Optional: Start with button hidden
-      sendBtn.style.display = "none";
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>

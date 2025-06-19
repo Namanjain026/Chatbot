@@ -138,6 +138,8 @@ body {
   display: flex;
   gap: 20px;
   flex-direction: column;
+  padding-bottom: 100px; /* 👈 enough space so last message isn’t hidden */
+  overflow-y: auto;
 }
 
 .chats-container .message{
@@ -307,4 +309,34 @@ body.light-mode {
   --text-color: #1e1e1e;
   --subheading-color: #606e85;
   --placeholder-color: #8a94a7;
+}
+
+.typing-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 32px; /* Adjust dot size */
+  line-height: 1;
+}
+
+.typing-dots span {
+  margin: 0 2px;
+  animation: blink 1.4s infinite;
+  opacity: 0.2;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(180deg); }
+  
+}
+
+.avatar.spinning {
+  animation: spin 1s linear infinite;
 }
