@@ -20,10 +20,11 @@
 body {
   color: var(--text-color);
   background: var(--primary-color);
+  overflow: hidden;
 }
 
 .container {
-  padding: 32px 0 60px;
+  padding: 32px 0 0;
 }
 
 .container :where(.app-header, .suggestions,
@@ -53,16 +54,6 @@ body {
   color: var(--subheading-color);
 }
 
-/* .container .suggestions {
-  display: flex;
-  gap: 15px;
-  margin-top: 9.5vh;
-  list-style: none;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-} */
-
 .container .suggestions {
   display: flex;
   gap: 15px;
@@ -70,17 +61,11 @@ body {
   list-style: none;
   overflow-x: auto;
   scroll-behavior: smooth;
-
-  /* Hide scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .container .suggestions::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-.container :is(.app-header, .suggestions){
   display: none;
 }
 
@@ -135,11 +120,12 @@ body {
 }
 
 .container .chats-container{
+  flex: 1;
   display: flex;
   gap: 20px;
   flex-direction: column;
-  padding-bottom: 100px; /* 👈 enough space so last message isn’t hidden */
   overflow-y: auto;
+  padding: 20px;
 }
 
 .chats-container .message{
@@ -193,10 +179,10 @@ body {
 
 .prompt-container :where(.prompt-wrapper, .prompt-form,
 .prompt-actions){
-display: flex;
-gap: 12px;
-height: 56px;
-align-items: center;
+  display: flex;
+  gap: 12px;
+  height: 56px;
+  align-items: center;
 }
 
 .prompt-wrapper .prompt-form{
@@ -247,25 +233,23 @@ align-items: center;
   width: 45px;
 }
 .prompt-form #send-prompt-btn{
-  display: none; /* hidden by default */
+  display: none;
   height: 45px;
   width: 45px;
   border-radius: 50%;
   background: #1d7efd;
   color: #fff;
   font-size: 24px;
-  display: inline-flex;           /* ensures icon is centered */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
-
 }
 
 .prompt-form .prompt-input:valid ~ .prompt-actions
 #send-prompt-btn{
   display: block;
-  
 }
 
 .prompt-form #send-prompt-btn:hover{
@@ -301,7 +285,6 @@ align-items: center;
   background: var(--secondary-hover-color);
 }
 
-/* Light mode theme */
 body.light-mode {
   --primary-color: #ffffff;
   --secondary-color: #f1f3f7;
@@ -316,7 +299,7 @@ body.light-mode {
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-size: 32px; /* Adjust dot size */
+  font-size: 32px;
   line-height: 1;
 }
 
@@ -334,9 +317,99 @@ body.light-mode {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(180deg); }
-  
 }
 
 .avatar.spinning {
   animation: spin 1s linear infinite;
+}
+
+.chat-sidebar {
+  width: 200px;
+  align-items: center;
+  background-color:var(--secondary-color);
+  background: #222939;
+  color: white;
+  padding: 1rem;
+  border-right: 3px solid #333;
+  border-radius: 0px 5px 0px  0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+#new-chat-btn {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  padding-right: 5.5px;
+  margin-top: 30px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #334a68;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+#new-chat-btn:hover {
+  background: #1b3d68;
+}
+
+.chat-sidebar.active {
+  transform: translateX(0);
+}
+
+#chat-history-list li {
+  cursor: pointer;
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+#chat-history-list li:hover {
+  text-decoration: underline;
+}
+
+.container-inner {
+  display: flex;
+  height: 100vh;
+  transition: margin-left 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hamburger-btn {
+  position: absolute;
+  margin-top: 5px;
+  top: 30px;
+  left: 10px;
+  z-index: 110;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  margin-left: -20px;
+  margin-top: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+body.sidebar-open .main-area {
+  margin-left: -20px;
 }

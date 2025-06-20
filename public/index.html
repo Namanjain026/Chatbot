@@ -5,74 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gemini Clone</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <header class="app-header">
-        <h1 class="heading">Hello, there</h1>
-        <h2 class="sub-heading">How can I help you?</h2>
-      </header>
 
-      <ul class="suggestions">
-        <li class="suggestions-item">
-          <p class="text">Design a home setup for remote work under $500.</p>
-          <span class="material-symbols-rounded">draw</span>
-        </li>
-        <li class="suggestions-item">
-          <p class="text">Improve your study routine with focus tools.</p>
-          <span class="material-symbols-rounded">lightbulb</span>
-        </li>
-        <li class="suggestions-item">
-          <p class="text">Plan a solo trip through Northeast India.</p>
-          <span class="material-symbols-rounded">explore</span>
-        </li>
-        <li class="suggestions-item">
-          <p class="text">Explain JavaScript closures with examples.</p>
-          <span class="material-symbols-rounded">code_blocks</span>
-        </li>
-      </ul>
+      <!-- Hamburger Button -->
+      <button id="menu-toggle" class="hamburger-btn">☰</button>
 
-      <div class="chats-container"></div>
+      <!-- Container Inner for Sidebar + Main Area -->
+      <div class="container-inner">
+        <!-- Sidebar -->
+        <div class="chat-sidebar">
+          <button id="new-chat-btn">➕ New Chat</button>
+          <ul id="chat-history-list"></ul>
+        </div>
 
-      <div class="prompt-container">
-        <div class="prompt-wrapper">
-          <form action="#" class="prompt-form">
-            <input
-              type="text"
-              placeholder="Ask Gemini"
-              class="prompt-input"
-              required
-            />
-            <input type="file" id="file-input" hidden />
-            <div class="prompt-actions">
-              <button
-                id="add-file-btn"
-                type="button"
-                class="material-symbols-rounded"
-              >
-                attach_file
+        <!-- Main Chat Area -->
+        <div class="main-area">
+          <header class="app-header">
+            <h1 class="heading">Hello, there</h1>
+            <h2 class="sub-heading">How can I help you?</h2>
+          </header>
+
+          <ul class="suggestions">
+            <li class="suggestions-item">
+              <p class="text">Design a home setup for remote work under $500.</p>
+              <span class="material-symbols-rounded">draw</span>
+            </li>
+            <li class="suggestions-item">
+              <p class="text">Improve your study routine with focus tools.</p>
+              <span class="material-symbols-rounded">lightbulb</span>
+            </li>
+            <li class="suggestions-item">
+              <p class="text">Plan a solo trip through Northeast India.</p>
+              <span class="material-symbols-rounded">explore</span>
+            </li>
+            <li class="suggestions-item">
+              <p class="text">Explain JavaScript closures with examples.</p>
+              <span class="material-symbols-rounded">code_blocks</span>
+            </li>
+          </ul>
+
+          <div class="chats-container"></div>
+
+          <div class="prompt-container">
+            <div class="prompt-wrapper">
+              <form action="#" class="prompt-form">
+                <input
+                  type="text"
+                  placeholder="Ask Gemini"
+                  class="prompt-input"
+                  required
+                />
+                <input type="file" id="file-input" hidden />
+                <div class="prompt-actions">
+                  <button
+                    id="add-file-btn"
+                    type="button"
+                    class="material-symbols-rounded"
+                  >
+                    attach_file
+                  </button>
+                  <button
+                    id="send-prompt-btn"
+                    class="material-symbols-rounded"
+                    type="submit"
+                  >
+                    arrow_upward
+                  </button>
+                </div>
+              </form>
+              <span id="selected-file-name"></span>
+              <button id="theme-toggle-btn" class="material-symbols-rounded">
+                light_mode
               </button>
-              <button
-                id="send-prompt-btn"
-                class="material-symbols-rounded"
-                type="submit"
-              >
-                arrow_upward
+              <button id="delete-chats-btn" class="material-symbols-rounded">
+                delete
               </button>
             </div>
-          </form>
-          <span id="selected-file-name"></span>
-          <button id="theme-toggle-btn" class="material-symbols-rounded">
-            light_mode
-          </button>
-          <button id="delete-chats-btn" class="material-symbols-rounded">
-            delete
-          </button>
+            <p class="disclaimer-text">
+              Gemini can make mistakes, please double-check it for your own satisfaction.
+            </p>
+          </div>
         </div>
-        <p class="disclaimer-text">
-          Gemini can make mistakes, please double-check it for your own satisfaction.
-        </p>
       </div>
     </div>
 
